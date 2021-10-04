@@ -12,7 +12,7 @@ https://zupimages.net/viewer.php?id=21/40/psh2.png Création d'un logo
 aprés avoir installé React, Expo... 
 ###### création du projet: 
 expo init ENCO
-###### Ce positioner dans le dossier de projet crée: 
+###### Se positioner dans le dossier de projet crée: 
 Cd ENCO
-###### Ce positioner dans le projet crée:
+###### Se positionner dans le projet crée:
 Code .
