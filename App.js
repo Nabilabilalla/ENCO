@@ -1,19 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { BrowserRouter as Router, Route, StaticRouter, Switch } from 'react-router-dom';
+import Login from './src/screens/Login';
 
-// screens
-import Login from './screens/Login';
+// import Home from './screens/Home';
+
 
 export default function App() {
-    return <Login / >
-}
+    return ( <
+        Router >
+        <
+        Switch >
+        <
+        Route exact path = "/"
+        component = { Login }
+        /> < /
+        Switch >
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+        <
+        /Router> 
+    );
+}

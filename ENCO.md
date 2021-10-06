@@ -13,7 +13,7 @@ https://zupimages.net/viewer.php?id=21/40/psh2.png Création d'un logo
 
 
 #### Création d'une Application en en utilisant React Native:
-aprés avoir installé React, Expo... et des composents stylisés
+aprés avoir installé React, Expo... et des composents stylisés(expo install formik styled-components expo-constants).
 ###### création du projet: 
 expo init ENCO
 ###### Se positioner dans le dossier de projet crée: 
