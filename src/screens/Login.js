@@ -53,7 +53,9 @@ const Login = () => {
             () => { history.push("/Register"); } } >
         S 'inscrire <
         /Text> <
-        Text style = { styles.Text } >
+        Text style = { styles.Text }
+        onClick = {
+            () => { history.push("/Password"); } } >
         Mot de passe oublié ?
         <
         /Text> <

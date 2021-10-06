@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Image, Text, View } from "react-native";
 
-const Register = () => {
+const Password = () => {
     let history = useHistory();
 
     return ( <
@@ -24,37 +24,12 @@ const Register = () => {
             }
         }
         /> <
-        View style = { styles.fixToText } >
+        Text style = { styles.Text } >
+        Mot de passe oublié ?
         <
-        TextInput style = { styles.input2 }
-        placeholder = "Nom" /
-        >
-        <
-        TextInput style = { styles.input2 }
-        placeholder = "Prénom"
-        keyboardType = "numeric" /
-        >
-        <
-        /View> <
-        View style = { styles.fixToText } >
-        <
-        TextInput style = { styles.input2 }
-        placeholder = "Ville" /
-        >
-        <
-        TextInput style = { styles.input2 }
-        placeholder = "Code postal"
-        keyboardType = "numeric" /
-        >
-        <
-        /View> <
+        /Text> <
         TextInput style = { styles.input }
         placeholder = "E-mail" /
-        >
-        <
-        TextInput style = { styles.input }
-        placeholder = "mot de passe"
-        keyboardType = "numeric" /
         >
         <
         TouchableOpacity style = { styles.button } >
@@ -63,7 +38,7 @@ const Register = () => {
             {
                 color: '#0400B2'
             }
-        } > S 'inscrire</Text> <
+        } > Envoyer < /Text> <
         /TouchableOpacity> {
             /* <Button
                   style={styles.Button}
@@ -74,14 +49,8 @@ const Register = () => {
         } <
         Text style = { styles.baseText }
         onClick = {
-            () => { history.push("/"); } } >
-        Connexion <
-        /Text> <
-        Text style = { styles.Text }
-        onClick = {
-            () => { history.push("/Password"); } } >
-        Mot de passe oublié ?
-        <
+            () => { history.push("/Register"); } } >
+        S 'inscrire <
         /Text> <
         /SafeAreaView>
     );
@@ -90,14 +59,6 @@ const Register = () => {
 const styles = StyleSheet.create({
     input: {
         height: 40,
-        margin: 12,
-        borderWidth: 1,
-        borderColor: '#0400B2',
-        padding: 10,
-    },
-    input2: {
-        height: 40,
-        width: 90,
         margin: 12,
         borderWidth: 1,
         borderColor: '#0400B2',
@@ -116,8 +77,6 @@ const styles = StyleSheet.create({
     },
     Text: {
         color: '#0400B2',
-        padding: 50,
-        marginRight: 55,
     },
     button: {
         alignItems: "center",
@@ -125,10 +84,7 @@ const styles = StyleSheet.create({
         borderColor: '#7ED957',
         padding: 10
     },
-    fixToText: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
+
 });
 
-export default Register;
+export default Password;
