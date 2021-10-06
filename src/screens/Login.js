@@ -1,10 +1,9 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput, Button, Image, Text } from "react-native";
+import { useHistory } from "react-router-dom";
+import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Image, Text } from "react-native";
 
 const Login = () => {
-    const [text, onChangeText] = React.useState(null);
-    const [number, onChangeNumber] = React.useState(null);
-
+    let history = useHistory();
 
     return ( <
         SafeAreaView style = {
@@ -12,7 +11,8 @@ const Login = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }
-        } > {
+        } >
+        {
             /* <Text style={styles.baseText}>
                   Connexion
                 </Text> */
@@ -25,33 +25,39 @@ const Login = () => {
         }
         /> <
         TextInput style = { styles.input }
-        onChangeText = { onChangeText }
-        value = { text }
         placeholder = "E-mail" /
         >
         <
         TextInput style = { styles.input }
-        onChangeText = { onChangeNumber }
-        value = { number }
         placeholder = "mot de passe"
         keyboardType = "numeric" /
         >
         <
-        Button style = { styles.Button }
-        color = "#0400B2"
-        title = "Connexion"
-        onPress = {
-            () => Alert.alert('Simple Button pressed')
-        }
-        /> <
-        Text style = { styles.baseText } >
-        S 'inscrire < /
-        Text > <
+        TouchableOpacity style = { styles.button } >
+        <
+        Text style = {
+            {
+                color: '#0400B2'
+            }
+        } > Connexion < /Text> <
+        /TouchableOpacity> {
+            /* <Button
+                  style={styles.Button}
+                    color="#0400B2"
+                    title="Connexion"
+                    onPress={() => Alert.alert('Simple Button pressed')}
+                  /> */
+        } <
+        Text style = { styles.baseText }
+        onClick = {
+            () => { history.push("/Register"); } } >
+        S 'inscrire <
+        /Text> <
         Text style = { styles.Text } >
         Mot de passe oublié ?
         <
-        /Text> < /
-        SafeAreaView >
+        /Text> <
+        /SafeAreaView>
     );
 };
 
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
         height: 40,
         margin: 12,
         borderWidth: 1,
-        borderColor: 'blue',
+        borderColor: '#0400B2',
         padding: 10,
     },
     logo: {
@@ -77,8 +83,14 @@ const styles = StyleSheet.create({
     Text: {
         color: '#0400B2',
         padding: 50,
-        marginRight: 60,
-    }
+        marginRight: 55,
+    },
+    button: {
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: '#7ED957',
+        padding: 10
+    },
 });
 
 export default Login;
