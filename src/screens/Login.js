@@ -2,8 +2,9 @@ import React from "react";
 import { SafeAreaView, StyleSheet, TextInput, Button, Image, Text } from "react-native";
 
 const Login = () => {
-    const [text, onChangeText] = React.useState("Useless Text");
+    const [text, onChangeText] = React.useState(null);
     const [number, onChangeNumber] = React.useState(null);
+
 
     return ( <
         SafeAreaView style = {
@@ -11,8 +12,7 @@ const Login = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }
-        } >
-        {
+        } > {
             /* <Text style={styles.baseText}>
                   Connexion
                 </Text> */
@@ -27,20 +27,31 @@ const Login = () => {
         TextInput style = { styles.input }
         onChangeText = { onChangeText }
         value = { text }
-        /> <
+        placeholder = "E-mail" /
+        >
+        <
         TextInput style = { styles.input }
         onChangeText = { onChangeNumber }
         value = { number }
-        placeholder = "useless placeholder"
+        placeholder = "mot de passe"
         keyboardType = "numeric" /
         >
         <
-        Button color = "#0400B2"
+        Button style = { styles.Button }
+        color = "#0400B2"
         title = "Connexion"
         onPress = {
-            () => Alert.alert('Simple Button pressed') }
+            () => Alert.alert('Simple Button pressed')
+        }
         /> <
-        /SafeAreaView>
+        Text style = { styles.baseText } >
+        S 'inscrire < /
+        Text > <
+        Text style = { styles.Text } >
+        Mot de passe oublié ?
+        <
+        /Text> < /
+        SafeAreaView >
     );
 };
 
@@ -49,6 +60,7 @@ const styles = StyleSheet.create({
         height: 40,
         margin: 12,
         borderWidth: 1,
+        borderColor: 'blue',
         padding: 10,
     },
     logo: {
@@ -57,11 +69,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    //   baseText:{
-    //     marginRight: 120,
-    //     color: '#0400B2',
-    //     fontWeight: 'bold'
-    //   }
+    baseText: {
+        color: '#0400B2',
+        fontWeight: 'bold',
+        padding: 10,
+    },
+    Text: {
+        color: '#0400B2',
+        padding: 50,
+        marginRight: 60,
+    }
 });
 
 export default Login;
