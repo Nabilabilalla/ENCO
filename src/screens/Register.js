@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Image, Text, View } from "react-native";
 
-const Register = () => {
-    let history = useHistory();
+// API
+const URL_LOGIN = "http://api.pote.dev/users";
 
+const enviarData = async(url, data) => {
+
+    const resp = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const json = await resp.json();
+
+    return json;
+
+}
+
+const Register = (props) => {
+    let history = useHistory();
+    const [error, setError] = useState(null);
+    const firstname = useRef(null);
+    const lastname = useRef(null);
+    const username = useRef(null);
+    const email = useRef(null);
+    const password = useRef(null);
+
+    const handleLogin = async() => {
+        const data = {
+            "firstname": firstname.current.value,
+            "lastname": lastname.current.value,
+            "username": username.current.value,
+            "email": email.current.value,
+            "password": password.current.value,
+        };
+        console.log(data);
+        const respuestaJson = await enviarData(URL_LOGIN, data);
+
+        console.log("Bien connecté", respuestaJson);
+
+        props.acceder(respuestaJson);
+        setError(respuestaJson.error);
+
+
+    }
     return ( <
         SafeAreaView style = {
             {
@@ -12,11 +55,7 @@ const Register = () => {
                 alignItems: 'center',
             }
         } >
-        {
-            /* <Text style={styles.baseText}>
-                  Connexion
-                </Text> */
-        } <
+        <
         Image style = { styles.logo }
         source = {
             {
@@ -27,63 +66,43 @@ const Register = () => {
         View style = { styles.fixToText } >
         <
         TextInput style = { styles.input2 }
-        placeholder = "Nom" /
-        >
+        ref = { firstname }
+        placeholder = "Nom" / >
         <
         TextInput style = { styles.input2 }
-        placeholder = "Prénom"
-        keyboardType = "numeric" /
-        >
+        ref = { lastname }
+        placeholder = "Prénom" / >
         <
-        /View> <
-        View style = { styles.fixToText } >
-        <
-        TextInput style = { styles.input2 }
-        placeholder = "Ville" /
-        >
-        <
-        TextInput style = { styles.input2 }
-        placeholder = "Code postal"
-        keyboardType = "numeric" /
-        >
-        <
-        /View> <
+        /View>  <
         TextInput style = { styles.input }
-        placeholder = "E-mail" /
-        >
+        ref = { username }
+        placeholder = "username" / >
         <
         TextInput style = { styles.input }
-        placeholder = "mot de passe"
-        keyboardType = "numeric" /
-        >
+        ref = { email }
+        placeholder = "E-mail" / >
+        <
+        TextInput style = { styles.input }
+        ref = { password }
+        placeholder = "mot de passe" / >
         <
         TouchableOpacity style = { styles.button } >
         <
-        Text style = {
+        Text onClick = { handleLogin }
+        style = {
             {
                 color: '#0400B2'
             }
-        } > S 'inscrire</Text> <
-        /TouchableOpacity> {
-            /* <Button
-                  style={styles.Button}
-                    color="#0400B2"
-                    title="Connexion"
-                    onPress={() => Alert.alert('Simple Button pressed')}
-                  /> */
-        } <
+        } > S 'inscrire</Text>  <
+        /TouchableOpacity>  <
         Text style = { styles.baseText }
         onClick = {
-            () => { history.push("/"); } } >
-        Connexion <
-        /Text> <
+            () => { history.push("/"); } } > Connexion < /Text>  <
         Text style = { styles.Text }
         onClick = {
-            () => { history.push("/Password"); } } >
-        Mot de passe oublié ?
+            () => { history.push("/Password"); } } > Mot de passe oublié ?
         <
-        /Text> <
-        /SafeAreaView>
+        /Text> </SafeAreaView >
     );
 };
 

@@ -11,8 +11,7 @@ const Login = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }
-        } >
-        {
+        } > {
             /* <Text style={styles.baseText}>
                   Connexion
                 </Text> */
@@ -39,8 +38,11 @@ const Login = () => {
             {
                 color: '#0400B2'
             }
-        } > Connexion < /Text> <
-        /TouchableOpacity> {
+        }
+        onClick = {
+            () => { history.push("/Home"); }
+        } > Connexion < /Text> < /
+        TouchableOpacity > {
             /* <Button
                   style={styles.Button}
                     color="#0400B2"
@@ -50,16 +52,18 @@ const Login = () => {
         } <
         Text style = { styles.baseText }
         onClick = {
-            () => { history.push("/Register"); } } >
-        S 'inscrire <
-        /Text> <
+            () => { history.push("/Register"); }
+        } >
+        S 'inscrire < /
+        Text > <
         Text style = { styles.Text }
         onClick = {
-            () => { history.push("/Password"); } } >
+            () => { history.push("/Password"); }
+        } >
         Mot de passe oublié ?
         <
-        /Text> <
-        /SafeAreaView>
+        /Text> < /
+        SafeAreaView >
     );
 };
 

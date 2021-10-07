@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Image, Text, View } from "react-native";
 
-const Password = () => {
+const Home = () => {
     let history = useHistory();
 
     return ( <
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Password;
+export default Home;

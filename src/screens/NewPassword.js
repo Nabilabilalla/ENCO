@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Image, Text, View } from "react-native";
 
-const Password = () => {
+const Passwordnew = () => {
     let history = useHistory();
 
     return ( <
@@ -25,11 +25,10 @@ const Password = () => {
         }
         /> <
         Text style = { styles.Text } >
-        Mot de passe oublié ?
-        <
+        Saisie votre nouveau mot de passe <
         /Text> <
         TextInput style = { styles.input }
-        placeholder = "E-mail" /
+        placeholder = " - -  - - - -" /
         >
         <
         TouchableOpacity style = { styles.button } >
@@ -37,20 +36,8 @@ const Password = () => {
         Text style = {
             { color: '#0400B2' } }
         onClick = {
-            () => { history.push("/PasswordCode"); } } > Envoyer < /Text> <
-        /TouchableOpacity> {
-            /* <Button
-                  style={styles.Button}
-                    color="#0400B2"
-                    title="Connexion"
-                    onPress={() => Alert.alert('Simple Button pressed')}
-                  /> */
-        } <
-        Text style = { styles.baseText }
-        onClick = {
-            () => { history.push("/Register"); } } >
-        S 'inscrire <
-        /Text> <
+            () => { history.push("/"); } } > Valider < /Text> <
+        /TouchableOpacity> <
         /SafeAreaView>
     );
 };
@@ -86,4 +73,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Password;
+export default Passwordnew;
